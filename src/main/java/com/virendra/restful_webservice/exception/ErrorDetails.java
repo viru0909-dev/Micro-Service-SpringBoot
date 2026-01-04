@@ -1,8 +1,8 @@
 package com.virendra.restful_webservice.exception;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+//create class to send back customize error response back
 public class ErrorDetails {
     private LocalDateTime timestamp;
     private String message;

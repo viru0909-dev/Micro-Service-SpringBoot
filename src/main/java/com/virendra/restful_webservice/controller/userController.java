@@ -48,4 +48,10 @@ public class userController {
         //Give back 201 status code when user is successfully create user
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+        service.deleteById(id);
+    }
+
 }
