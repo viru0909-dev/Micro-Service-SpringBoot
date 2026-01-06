@@ -3,7 +3,9 @@ package com.virendra.restful_webservice.controller;
 import com.virendra.restful_webservice.entity.userDaoService;
 import com.virendra.restful_webservice.entity.users;
 import com.virendra.restful_webservice.exception.UserNotFoundExecption;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -34,8 +36,10 @@ public class userController {
         return  user;
     }
 
+
+    //use @valid to pickup validation like name should not be empty
     @PostMapping("/users")
-    public ResponseEntity<users> createUser(@RequestBody users user){
+    public ResponseEntity<users> createUser(@Valid @RequestBody users user){
        users savedUser = service.save(user);
 
        // we add a location -> 	http://localhost:8080/users/4 to response
